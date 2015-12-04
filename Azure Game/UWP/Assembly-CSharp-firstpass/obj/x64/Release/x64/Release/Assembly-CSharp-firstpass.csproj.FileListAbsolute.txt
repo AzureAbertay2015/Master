@@ -1,0 +1,16 @@
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\bin\x64\Release\Assembly-CSharp-firstpass.pdb
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\bin\x64\Release\Assembly-CSharp-firstpass.pri
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\Assembly-CSharp-firstpass.dll
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\Assembly-CSharp-firstpass.pdb
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\priconfig.xml
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\priconfig.xml.intermediate
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\layout.resfiles
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\layout.resfiles.intermediate
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\resources.resfiles
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\resources.resfiles.intermediate
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\pri.resfiles
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\pri.resfiles.intermediate
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\qualifiers.txt
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\qualifiers.txt.intermediate
+C:\Users\MC10813user\Documents\Azure Game\UWP\Assembly-CSharp-firstpass\obj\x64\Release\x64\Release\MultipleQualifiersPerDimensionFound.txt
