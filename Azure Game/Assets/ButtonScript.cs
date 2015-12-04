@@ -7,7 +7,7 @@ public class ButtonScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "Player") ;
-            //StartCoroutine(Door.GetComponent(DoorScript).OpenUp());
+        if (collider.gameObject.tag == "Player")
+            StartCoroutine(Door.GetComponent<DoorScript>().OpenUp());
     }
 }
