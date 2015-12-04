@@ -1,6 +1,8 @@
 .DS_Store
 Library
 Temp
+obj
+UWP
 *.csproj
 *.pidb
 *.unityproj
