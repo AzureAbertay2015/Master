@@ -1,9 +1,14 @@
 Base path: C:/Program Files/Unity/Editor/Data
+<<<<<<< HEAD
 Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-10704
+=======
+Pipe name: \\.\pipe\UnityShaderCompiler-64bit-1-2184
+>>>>>>> origin/master
 Cmd: getPlatforms
 Cmd: preprocess
   insize=1060 outsize=1582 ok=1
 Cmd: compileSnippet
+<<<<<<< HEAD
   api=4 type=0 insize=751 outsize=3533 kw=SHADOWS_DEPTH pd= ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=751 outsize=380 kw=SHADOWS_DEPTH pd= ok=1
@@ -43,3 +48,28 @@ Cmd: compileSnippet
   api=4 type=0 insize=13030 outsize=11024 kw=UNITY_COLORSPACE_GAMMA _SUNDISK_SIMPLE pd= ok=1
 Cmd: compileSnippet
   api=4 type=1 insize=13030 outsize=1899 kw=UNITY_COLORSPACE_GAMMA _SUNDISK_SIMPLE pd= ok=1
+=======
+  api=4 type=0 insize=7369 outsize=3443 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=7369 outsize=1769 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=4180 outsize=2533 kw=POINT pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=4180 outsize=2379 kw=POINT pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3484 outsize=2533 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3484 outsize=697 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6532 outsize=3971 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6532 outsize=1891 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6324 outsize=3581 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6324 outsize=2103 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF DYNAMICLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF pd= ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=3709 outsize=3216 kw= pd= ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=3709 outsize=1843 kw= pd= ok=1
+>>>>>>> origin/master
