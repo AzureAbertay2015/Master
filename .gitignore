@@ -3,6 +3,7 @@ Library
 Temp
 obj
 UWP
+build
 *.csproj
 *.pidb
 *.unityproj
