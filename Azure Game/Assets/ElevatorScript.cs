@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RedButtonScript : MonoBehaviour
+public class ElevatorScript : MonoBehaviour
 {
+    public float delta = 0.05f;
     public Vector3 OpenPosition;
     public Vector3 ClosePosition;
 
@@ -31,8 +32,8 @@ public class RedButtonScript : MonoBehaviour
         {
             while (transform.position != OpenPosition)
             {
-                transform.position = Vector3.MoveTowards(transform.position, OpenPosition, 0.01f);
-                if (Vector3.Distance(transform.position, OpenPosition) <= 0.01f)
+                transform.position = Vector3.MoveTowards(transform.position, OpenPosition, delta);
+                if (Vector3.Distance(transform.position, OpenPosition) <= delta)
                 {
                     transform.position = OpenPosition;
                     open = true;
@@ -48,8 +49,8 @@ public class RedButtonScript : MonoBehaviour
         {
             while (transform.position != ClosePosition)
             {
-                transform.position = Vector3.MoveTowards(transform.position, ClosePosition, 0.01f);
-                if (Vector3.Distance(transform.position, ClosePosition) <= 0.01f)
+                transform.position = Vector3.MoveTowards(transform.position, ClosePosition, delta);
+                if (Vector3.Distance(transform.position, ClosePosition) <= delta)
                 {
                     transform.position = ClosePosition;
                     open = false;
