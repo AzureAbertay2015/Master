@@ -20,14 +20,11 @@ public class LeverScript : MonoBehaviour {
         }
 
     }
-    /*
+    
     public void DoDeactivateTrigger()
     {
-        if (down)
-        {
-            StartCoroutine(SwitchUp());
-        }
-    }*/
+        
+    }
 
     public IEnumerator SwitchDown()
     {
