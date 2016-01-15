@@ -1,6 +1,9 @@
 .DS_Store
 Library
 Temp
+obj
+UWP
+build
 *.csproj
 *.pidb
 *.unityproj
@@ -8,4 +11,3 @@ Temp
 *.userprefs
 *.cache
 *.suo
-*.cache
