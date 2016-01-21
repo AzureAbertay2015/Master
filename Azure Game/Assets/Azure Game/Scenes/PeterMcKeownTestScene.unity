@@ -338,6 +338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc257e1744662434280fa885a7be971c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_pSolidMesh: {fileID: 0}
+  m_pLiquidMesh: {fileID: 0}
+  m_pGasMesh: {fileID: 0}
 --- !u!114 &799539057
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,8 +7,11 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerControls : MonoBehaviour {
 
     const string SOLID_MODEL = "CubePrototype02x02x02";
-    const string LIQUID_MODEL = "PlatformPrototype02x01x02";
-    const string GAS_MODEL = "StepsPrototype04x02x02";
+    const string LIQUID_MODEL = "CubePrototype02x02x02";
+    const string GAS_MODEL = "CubePrototype02x02x02";
+
+    
+    
 
     private Player m_pPlayer; // Reference to the ball controller.
 
@@ -25,35 +28,45 @@ public class PlayerControls : MonoBehaviour {
 
     private int m_iState;
     
-    private Mesh m_pSolidMesh;
-    private Mesh m_pLiquidMesh;
-    private Mesh m_pGasMesh;
+    public Mesh m_pSolidMesh;
+    public Mesh m_pLiquidMesh;
+    public Mesh m_pGasMesh;
 
     private bool jump_debounce = false;
+
+    
+    public enum State { Solid, Liquid, Gas };
+    public State m_State;
+    private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
+
+
 
     private void SetMesh( Mesh target_mesh )
     {
         GetComponent<MeshFilter>().mesh = target_mesh;
+        // switch the mesh
         if (target_mesh == m_pSolidMesh)
         {
-            GetComponent<SphereCollider>().enabled = false;
-            GetComponents<BoxCollider>()[1].enabled = true;
-            GetComponents<BoxCollider>()[0].enabled = false;
-            GetComponent<MeshCollider>().enabled = false;
+            
+            GetComponents<BoxCollider>()[0].enabled = true;
+            GetComponents<BoxCollider>()[1].enabled = false;
+            GetComponents<BoxCollider>()[2].enabled = false;
+            GetComponent<Rigidbody>().useGravity = true;
         }
         if (target_mesh == m_pLiquidMesh)
         {
-            GetComponent<SphereCollider>().enabled = false;
-            GetComponents<BoxCollider>()[1].enabled = false;
-            GetComponents<BoxCollider>()[0].enabled = true;
-            GetComponent<MeshCollider>().enabled = false;
+            
+            GetComponents<BoxCollider>()[0].enabled = false;
+            GetComponents<BoxCollider>()[1].enabled = true;
+            GetComponents<BoxCollider>()[2].enabled = false;
+            GetComponent<Rigidbody>().useGravity = true;
         }
         if (target_mesh == m_pGasMesh)
         {
-            GetComponent<SphereCollider>().enabled = false;
             GetComponents<BoxCollider>()[0].enabled = false;
             GetComponents<BoxCollider>()[1].enabled = false;
-            GetComponent<MeshCollider>().enabled = true;
+            GetComponents<BoxCollider>()[2].enabled = true;
+            GetComponent<Rigidbody>().useGravity = false;
         }
     }
     
@@ -92,7 +105,6 @@ public class PlayerControls : MonoBehaviour {
             // we use world-relative controls in this case, which may not be what the user wants, but hey, we warned them!
         }
     }
-
 
     private void Update()
     {
