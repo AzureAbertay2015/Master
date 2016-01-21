@@ -19,6 +19,9 @@ public class PlayerControls : MonoBehaviour {
     private Vector3 camForward; // The current forward direction of the camera
     private bool jump; // whether the jump button is currently pressed
 
+    private bool e; // whether the 'e' key is pressed
+    private bool e_up;// is 'e' key released
+
 
     private int m_iState;
     
@@ -31,6 +34,27 @@ public class PlayerControls : MonoBehaviour {
     private void SetMesh( Mesh target_mesh )
     {
         GetComponent<MeshFilter>().mesh = target_mesh;
+        if (target_mesh == m_pSolidMesh)
+        {
+            GetComponent<SphereCollider>().enabled = false;
+            GetComponents<BoxCollider>()[1].enabled = true;
+            GetComponents<BoxCollider>()[0].enabled = false;
+            GetComponent<MeshCollider>().enabled = false;
+        }
+        if (target_mesh == m_pLiquidMesh)
+        {
+            GetComponent<SphereCollider>().enabled = false;
+            GetComponents<BoxCollider>()[1].enabled = false;
+            GetComponents<BoxCollider>()[0].enabled = true;
+            GetComponent<MeshCollider>().enabled = false;
+        }
+        if (target_mesh == m_pGasMesh)
+        {
+            GetComponent<SphereCollider>().enabled = false;
+            GetComponents<BoxCollider>()[0].enabled = false;
+            GetComponents<BoxCollider>()[1].enabled = false;
+            GetComponent<MeshCollider>().enabled = true;
+        }
     }
     
     private void Awake()
@@ -77,34 +101,35 @@ public class PlayerControls : MonoBehaviour {
         float h = CrossPlatformInputManager.GetAxis("Horizontal");
         float v = CrossPlatformInputManager.GetAxis("Vertical");
         jump = CrossPlatformInputManager.GetButton("Jump");
+        bool e = Input.GetKey(KeyCode.E);
 
         if (!jump)
             jump_debounce = false;
 
+        if (!e)
+            e_up = false;
+        
         if ( jump && !jump_debounce )
-        {
             jump_debounce = true;
+        
+        if (e && !e_up)
+        {
+            e_up = true;
             m_iState++;
-
             if (m_iState > 2)
                 m_iState = 0;
- 
-            switch( m_iState )
+            switch(m_iState)
             {
                 case 0:
                     SetMesh(m_pSolidMesh);
                     break;
-
                 case 1:
                     SetMesh(m_pLiquidMesh);
                     break;
-
                 case 2:
                     SetMesh(m_pGasMesh);
                     break;
-               
             }
-
         }
 
           
