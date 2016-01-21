@@ -29,9 +29,10 @@ public class Player : MonoBehaviour {
         // If using torque to rotate the ball...
         if (m_UseTorque)
         {
-            // ... add torque around the axis defined by the move direction.
-            m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x) * m_MovePower);
-        }
+			// ... add torque around the axis defined by the move direction.
+			//m_Rigidbody.AddTorque(new Vector3(moveDirection.z, 0, -moveDirection.x) * m_MovePower);
+			m_Rigidbody.AddForce(moveDirection * m_MovePower);
+		}
         else
         {
             // Otherwise add force in the move direction.
