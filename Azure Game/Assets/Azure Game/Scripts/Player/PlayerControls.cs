@@ -6,9 +6,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class PlayerControls : MonoBehaviour {
 
-    const string SOLID_MODEL = "CubePrototype02x02x02";
-    const string LIQUID_MODEL = "CubePrototype02x02x02";
-    const string GAS_MODEL = "CubePrototype02x02x02";
+    public const string SOLID_MODEL = "CubePrototype02x02x02";
+    public const string LIQUID_MODEL = "CubePrototype02x02x02";
+    public const string GAS_MODEL = "CubePrototype02x02x02";
+
+    const string SOLID_MATERIAL = "Black Grid";
+    const string LIQUID_MATERIAL = "Blue";
+    const string GAS_MATERIAL = "Green";
 
     
     
@@ -23,28 +27,35 @@ public class PlayerControls : MonoBehaviour {
     private bool jump; // whether the jump button is currently pressed
 
     private bool e; // whether the 'e' key is pressed
+    private bool q; // whether the 'q' key is pressed
     private bool e_up;// is 'e' key released
+    private bool q_up;//is 'q' key released
 
 
-    private int m_iState;
-    
-    public Mesh m_pSolidMesh;
-    public Mesh m_pLiquidMesh;
-    public Mesh m_pGasMesh;
+   // private int m_iState;
+
+    private Mesh m_pSolidMesh;
+    private Mesh m_pLiquidMesh;
+    private Mesh m_pGasMesh;
+
+    private Material m_SolidMaterial;
+    private Material m_LiquidMaterial;
+    private Material m_GasMaterial;
 
     private bool jump_debounce = false;
 
     
     public enum State { Solid, Liquid, Gas };
     public State m_State;
-    private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
+    private State m_PreviousState;
+    //private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
 
 
 
     private void SetMesh( Mesh target_mesh )
     {
         GetComponent<MeshFilter>().mesh = target_mesh;
-        // switch the mesh
+        // switch the collider
         if (target_mesh == m_pSolidMesh)
         {
             
@@ -69,25 +80,38 @@ public class PlayerControls : MonoBehaviour {
             GetComponent<Rigidbody>().useGravity = false;
         }
     }
+
+    private void SetMaterial(Material target_material)
+    {
+        GetComponent<MeshRenderer>().material = target_material;
+    }
     
     private void Awake()
     {
 
         GameObject o;
+        m_State = State.Solid;
+        m_PreviousState = State.Solid;
 
         o = Instantiate(Resources.Load(SOLID_MODEL)) as GameObject;
         m_pSolidMesh = o.GetComponent<MeshFilter>().mesh;
         o.SetActive(false);
 
-        o = Instantiate(Resources.Load(LIQUID_MODEL)) as GameObject;
+		o = Instantiate(Resources.Load(LIQUID_MODEL)) as GameObject;
         m_pLiquidMesh = o.GetComponent<MeshFilter>().mesh;
         o.SetActive(false);
 
-        o = Instantiate(Resources.Load(GAS_MODEL)) as GameObject;
+		o = Instantiate(Resources.Load(GAS_MODEL)) as GameObject;
         m_pGasMesh = o.GetComponent<MeshFilter>().mesh;
         o.SetActive(false);
 
-        SetMesh(m_pSolidMesh);
+
+		m_SolidMaterial = Resources.Load(SOLID_MATERIAL) as Material;
+		m_LiquidMaterial = Resources.Load(LIQUID_MATERIAL) as Material;
+		m_GasMaterial = Resources.Load(GAS_MATERIAL) as Material;
+
+		SetMesh(m_pSolidMesh);
+		SetMaterial(m_SolidMaterial);
             
         // Set up the reference.
        m_pPlayer = GetComponent<Player>();
@@ -114,37 +138,61 @@ public class PlayerControls : MonoBehaviour {
         float v = CrossPlatformInputManager.GetAxis("Vertical");
         jump = CrossPlatformInputManager.GetButton("Jump");
         bool e = Input.GetKey(KeyCode.E);
+        bool q = Input.GetKey(KeyCode.Q);
+
 
         if (!jump)
-            jump_debounce = false;
+            jump_debounce = false; 
 
         if (!e)
             e_up = false;
-        
+
+        if (!q)
+            q_up = false;
+
         if ( jump && !jump_debounce )
             jump_debounce = true;
         
         if (e && !e_up)
         {
             e_up = true;
-            m_iState++;
-            if (m_iState > 2)
-                m_iState = 0;
-            switch(m_iState)
+            switch(m_State)
             {
-                case 0:
-                    SetMesh(m_pSolidMesh);
-                    break;
-                case 1:
+                case State.Solid:
                     SetMesh(m_pLiquidMesh);
+					SetMaterial(m_LiquidMaterial);
+                    m_PreviousState = m_State;
+                    m_State = State.Liquid;                    
                     break;
-                case 2:
+                case State.Liquid:
                     SetMesh(m_pGasMesh);
+					SetMaterial(m_GasMaterial);
+                    m_PreviousState = m_State;
+                    m_State = State.Gas;
                     break;
             }
         }
 
-          
+        if (q && !q_up)
+        {
+            q_up = true;
+            switch (m_State)
+            {
+                case State.Gas:
+                    SetMesh(m_pLiquidMesh);
+					SetMaterial(m_LiquidMaterial);
+                    m_PreviousState = m_State;
+                    m_State = State.Liquid;
+                    break;
+                case State.Liquid:
+                    SetMesh(m_pSolidMesh);
+					SetMaterial(m_SolidMaterial);
+                    m_PreviousState = m_State;
+                    m_State = State.Solid;
+                    break;
+            }
+        }
+        
         // calculate move direction
         if (cam != null)
         {

@@ -1128,9 +1128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc257e1744662434280fa885a7be971c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pSolidMesh: {fileID: 0}
-  m_pLiquidMesh: {fileID: 0}
-  m_pGasMesh: {fileID: 0}
   m_State: 0
 --- !u!114 &799539057
 MonoBehaviour:
@@ -1185,8 +1182,6 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 4876fc9dc009bbe4493553020a561611, type: 2}
-  - {fileID: 2100000, guid: 4876fc9dc009bbe4493553020a561611, type: 2}
   - {fileID: 2100000, guid: 4876fc9dc009bbe4493553020a561611, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
