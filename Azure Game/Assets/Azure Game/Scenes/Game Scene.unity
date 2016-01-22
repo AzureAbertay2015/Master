@@ -1141,7 +1141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MovePower: 5.19000006
-  m_UseTorque: 1
   m_MaxAngularVelocity: 10
   m_JumpPower: 1.12
 --- !u!54 &799539058
@@ -1221,7 +1220,7 @@ BoxCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 799539055}
-  m_Material: {fileID: 13400000, guid: e52fb17f9b1e7fd48b8955f1391d3688, type: 2}
+  m_Material: {fileID: 13400000, guid: 4c839374afb754b29a328cdbee306c95, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

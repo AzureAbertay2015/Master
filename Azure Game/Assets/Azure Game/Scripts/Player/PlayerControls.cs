@@ -105,7 +105,6 @@ public class PlayerControls : MonoBehaviour {
         m_pGasMesh = o.GetComponent<MeshFilter>().mesh;
         o.SetActive(false);
 
-
 		m_SolidMaterial = Resources.Load(SOLID_MATERIAL) as Material;
 		m_LiquidMaterial = Resources.Load(LIQUID_MATERIAL) as Material;
 		m_GasMaterial = Resources.Load(GAS_MATERIAL) as Material;
@@ -114,7 +113,7 @@ public class PlayerControls : MonoBehaviour {
 		SetMaterial(m_SolidMaterial);
             
         // Set up the reference.
-       m_pPlayer = GetComponent<Player>();
+        m_pPlayer = GetComponent<Player>();
 
 
         // get the transform of the main camera
@@ -214,5 +213,4 @@ public class PlayerControls : MonoBehaviour {
         m_pPlayer.Move(move, jump);
         jump = false;
     }
-
 }
