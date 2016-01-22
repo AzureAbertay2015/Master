@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Interactive
   layers:
   - Default
   - TransparentFX
@@ -13,6 +14,7 @@ TagManager:
   - UI
   - 
   - 
+  - Lever
   - 
   - 
   - 
@@ -35,9 +37,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Back
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 4001346661
     locked: 0
