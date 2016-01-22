@@ -312,7 +312,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 12214
+  m_CachedInstanceID: 27308
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.MissingNode
@@ -596,7 +596,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 12242
+  m_CachedInstanceID: 27336
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 12256
+  m_CachedInstanceID: 27350
   m_Description: 4368616e6765732074686520636f6c6f72206f6620746865206c69676874207768656e20736f6d657468696e6720656e746572732074686520747269676765722e
   m_EnabledState: {fileID: 0}
   m_LastEnabledState: {fileID: 0}
@@ -811,7 +811,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2131409176}
     m_EventID: -17
-  m_CachedInstanceID: 12260
+  m_CachedInstanceID: 27354
 --- !u!114 &2131409176
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Transitions:
   - m_Destination: {fileID: 2131409175}
     m_EventID: -10
-  m_CachedInstanceID: 12262
+  m_CachedInstanceID: 27356
   m_NodeSerialization:
     m_NodeTypes:
     - BehaviourMachine.MissingNode

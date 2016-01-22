@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 16056
+  m_CachedInstanceID: 32654
   m_Description: 4164647320616e206578706c6f74696f6e20666f726365206f6e206d6f75736520636c69636b2e
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
@@ -3184,7 +3184,7 @@ MonoBehaviour:
   m_HideScript: 1
   m_Position: {x: 0, y: 0}
   m_Transitions: []
-  m_CachedInstanceID: 16154
+  m_CachedInstanceID: 32752
   m_Description: 
   m_IgnoreTimeScale: 0
   m_ResetStatusOnDisable: 1
