@@ -44,29 +44,24 @@ public class PlayerControls : MonoBehaviour {
 
     private bool jump_debounce = false;
 
-    
     public enum State { Solid, Liquid, Gas };
     public State m_State;
     private State m_PreviousState;
     //private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
-
-
 
     private void SetMesh( Mesh target_mesh )
     {
         GetComponent<MeshFilter>().mesh = target_mesh;
         // switch the collider
         if (target_mesh == m_pSolidMesh)
-        {
-            
+        {            
             GetComponents<BoxCollider>()[0].enabled = true;
             GetComponents<BoxCollider>()[1].enabled = false;
             GetComponents<BoxCollider>()[2].enabled = false;
             GetComponent<Rigidbody>().useGravity = true;
         }
         if (target_mesh == m_pLiquidMesh)
-        {
-            
+        {            
             GetComponents<BoxCollider>()[0].enabled = false;
             GetComponents<BoxCollider>()[1].enabled = true;
             GetComponents<BoxCollider>()[2].enabled = false;
@@ -114,7 +109,6 @@ public class PlayerControls : MonoBehaviour {
             
         // Set up the reference.
         m_pPlayer = GetComponent<Player>();
-
 
         // get the transform of the main camera
         if (Camera.main != null)
