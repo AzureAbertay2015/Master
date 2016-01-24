@@ -19,13 +19,19 @@ public class DoorScript : MonoBehaviour {
 
     private bool open;
 
+    public void Start()
+    {
+        OpenPosition = transform.position;
+        OpenPosition.y += transform.position.y + 20;
+        ClosePosition = transform.position;
+    }
+
     public void DoActivateTrigger()
     {
         if (!open)
         {
             StartCoroutine(OpenUp());
-        }
-        
+        }        
     }
 
     public void DoDeactivateTrigger()

@@ -34,4 +34,15 @@ public class Player : MonoBehaviour {
             m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.Impulse);
         }
     }
+
+    public void Fly(Vector3 moveDirection, bool jump)
+    {
+        m_Rigidbody.AddForce(moveDirection * m_MovePower);
+
+        if (jump)
+        {
+            // ... add force in upwards.
+            m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.Impulse);
+        }
+    }
 }
