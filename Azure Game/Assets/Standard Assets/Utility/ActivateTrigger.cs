@@ -86,10 +86,36 @@ namespace UnityStandardAssets.Utility
             }
         }
 
+        private void DoDeactivateTrigger()
+        {
+            Object currentTarget = target ?? gameObject;
+            Behaviour targetBehaviour = currentTarget as Behaviour;
+            GameObject targetGameObject = currentTarget as GameObject;
+            if (targetBehaviour != null)
+            {
+                targetGameObject = targetBehaviour.gameObject;
+            }
+
+            switch (action)
+            {
+                case Mode.Trigger:
+                    if (targetGameObject != null)
+                    {
+                        targetGameObject.BroadcastMessage("DoDeactivateTrigger");
+                    }
+                    break;
+            }
+        }
+    
 
         private void OnTriggerEnter(Collider other)
         {
             DoActivateTrigger();
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            DoDeactivateTrigger();
         }
     }
 }
