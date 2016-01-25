@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class playScript : MonoBehaviour
 {
     public void nextScene()
     {
-        SceneManager.LoadScene("Game Scene");
+		Application.LoadLevel("Game Scene");
     }
 }

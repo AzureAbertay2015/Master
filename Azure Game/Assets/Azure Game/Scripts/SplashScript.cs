@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
+//using UnityEngine.SceneManagement;
 
 public class SplashScript : MonoBehaviour {
 
@@ -17,7 +17,7 @@ public class SplashScript : MonoBehaviour {
 
         if (timer <= 0)
         {
-            SceneManager.LoadScene("Menu Scene");
+			Application.LoadLevel("Menu Scene");
         }
     }
 }
