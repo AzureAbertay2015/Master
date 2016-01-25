@@ -45,7 +45,6 @@ public class PlayerControls : MonoBehaviour {
     public enum State { Solid, Liquid, Gas };
     public State m_State;
     private State m_PreviousState;
-    //private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
 
     private void SetMesh( Mesh target_mesh )
     {
@@ -205,4 +204,12 @@ public class PlayerControls : MonoBehaviour {
         m_pPlayer.Move(move, jump);
         jump = false;
     }
+
+	public int GetState()
+	{
+		if (m_State == State.Solid) return 0;
+		else if (m_State == State.Liquid) return 1;
+		else if (m_State == State.Gas) return 2;
+		else return -1;
+	}
 }

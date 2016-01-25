@@ -3,21 +3,27 @@ using System.Collections;
 
 public class DoorScript : MonoBehaviour {
 
-    /*
+	public Vector3 MoveAmount;
+	private Vector3 OpenPosition;
+	private Vector3 ClosePosition;
+	//private Vector3 StartPosition;
+	private bool open;
+
 	// Use this for initialization
 	void Start () {
-	
+		// open position start position + moveamount
+		ClosePosition = this.transform.position;
+		OpenPosition = ClosePosition + MoveAmount;
 	}
 	
 	// Update is called once per frame
+	/*
 	void Update () {
 	
+
 	}
     */
-    public Vector3 OpenPosition;
-    public Vector3 ClosePosition;
-
-    private bool open;
+    
 
     public void DoActivateTrigger()
     {
