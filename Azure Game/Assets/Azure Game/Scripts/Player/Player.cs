@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public GameManager m_GameManager;
+
     [SerializeField]
     private float m_MovePower = 10; // The force added to the player to move it.
     [SerializeField]
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour {
 
     private void Start()
     {
-        m_Rigidbody = GetComponent<Rigidbody>();
+		m_Rigidbody = GetComponent<Rigidbody>();
         // Set the maximum angular velocity.
         GetComponent<Rigidbody>().maxAngularVelocity = m_MaxAngularVelocity;
     }
@@ -34,4 +36,9 @@ public class Player : MonoBehaviour {
             m_Rigidbody.AddForce(Vector3.up * m_JumpPower, ForceMode.Impulse);
         }
     }
+
+	public void ChangeState(int state)
+	{
+		m_GameManager.ChangeState(state);
+	}
 }

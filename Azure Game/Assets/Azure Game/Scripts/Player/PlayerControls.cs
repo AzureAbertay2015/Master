@@ -106,6 +106,7 @@ public class PlayerControls : MonoBehaviour {
             
         // Set up the reference.
         m_pPlayer = GetComponent<Player>();
+		
 
         // get the transform of the main camera
         if (Camera.main != null)
@@ -152,13 +153,15 @@ public class PlayerControls : MonoBehaviour {
                     SetMesh(m_pLiquidMesh);
 					SetMaterial(m_LiquidMaterial);
                     m_PreviousState = m_State;
-                    m_State = State.Liquid;                    
+                    m_State = State.Liquid;
+					m_pPlayer.ChangeState(1);               
                     break;
                 case State.Liquid:
                     SetMesh(m_pGasMesh);
 					SetMaterial(m_GasMaterial);
                     m_PreviousState = m_State;
                     m_State = State.Gas;
+					m_pPlayer.ChangeState(2);
                     break;
             }
         }
@@ -173,12 +176,14 @@ public class PlayerControls : MonoBehaviour {
 					SetMaterial(m_LiquidMaterial);
                     m_PreviousState = m_State;
                     m_State = State.Liquid;
+					m_pPlayer.ChangeState(1);
                     break;
                 case State.Liquid:
                     SetMesh(m_pSolidMesh);
 					SetMaterial(m_SolidMaterial);
                     m_PreviousState = m_State;
                     m_State = State.Solid;
+					m_pPlayer.ChangeState(0);
                     break;
             }
         }
