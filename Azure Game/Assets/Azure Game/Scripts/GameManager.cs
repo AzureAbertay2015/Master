@@ -5,7 +5,10 @@ public class GameManager : MonoBehaviour
 {
 
 	public enum PlayerState { Solid, Liquid, Gas };
+	public enum Temperature { Cold, Warm, Hot };
+
 	public PlayerState m_State;
+	public Temperature m_Temperature;
 	
 
     //----------------------------------------
@@ -18,6 +21,7 @@ public class GameManager : MonoBehaviour
     void Start() {
 		//player = GetComponent<Player>();
 		m_State = PlayerState.Solid;
+		m_Temperature = Temperature.Warm;
 	}
 
     public void TogglePauseMenu()
@@ -34,7 +38,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
+        //Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
     }
 
 	public void ChangeState(int state)
@@ -56,8 +60,10 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("GAMEMANAGER:: PlayerState: " + state);
+			//Debug.Log("GAMEMANAGER:: PlayerState: " + state);
 		}
 	}
+
+	//public void ChangeTemperature(int temperature)
 
 }
