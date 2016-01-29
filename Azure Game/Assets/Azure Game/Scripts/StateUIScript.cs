@@ -5,10 +5,12 @@ using UnityEngine.UI;
 public class StateUIScript : MonoBehaviour {
 
     private Text m_stateText;
+    PlayerControls playerControls;
 
     // Use this for initialization
     void Start ()
     {
+        playerControls = GetComponent<PlayerControls>();
         m_stateText = GetComponent<Text>();
     }
 	
