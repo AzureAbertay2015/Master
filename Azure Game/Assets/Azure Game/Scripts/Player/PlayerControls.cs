@@ -17,7 +17,7 @@ public class PlayerControls : MonoBehaviour {
     
     
 
-    private Player m_pPlayer; // Reference to the ball controller.
+    private Player m_pPlayer; // Reference to the player 
 
     private Vector3 move;
     // the world-relative desired move direction, calculated from the camForward and user input.
@@ -45,7 +45,7 @@ public class PlayerControls : MonoBehaviour {
     private bool jump_debounce = false;
 
     public enum State { Solid, Liquid, Gas };
-    public State m_State;
+    public static State m_State;
     private State m_PreviousState;
     //private string[] options = new string[] { "CubePrototype02x02x02", "CubePrototype02x02x02", "CubePrototype02x02x02" };
 
@@ -203,8 +203,16 @@ public class PlayerControls : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        // Call the Move function of the ball controller
-        m_pPlayer.Move(move, jump);
-        jump = false;
+        //if solid or liquid
+        if (m_State == State.Solid || m_State == State.Liquid)
+        {         
+            // Call the Move function of the ball controller
+            m_pPlayer.Move(move, jump);
+            jump = false;
+        }
+        else if (m_State == State.Gas)
+        {
+            m_pPlayer.Fly(move, jump);
+        }
     }
 }
