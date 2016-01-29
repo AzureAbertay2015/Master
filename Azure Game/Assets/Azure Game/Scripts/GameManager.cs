@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
 
 	public enum PlayerState { Solid, Liquid, Gas };
+	public enum Temperature { Cold, Warm, Hot };
+
 	public PlayerState m_State;
+	public Temperature m_Temperature;
+	//public Text m_TemperatureText;
+	public Text m_TemperatureText;
 	
 
     //----------------------------------------
@@ -18,6 +24,8 @@ public class GameManager : MonoBehaviour
     void Start() {
 		//player = GetComponent<Player>();
 		m_State = PlayerState.Solid;
+		m_Temperature = Temperature.Warm;
+		m_TemperatureText.text = "Warm";
 	}
 
     public void TogglePauseMenu()
@@ -34,7 +42,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
+        //Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
     }
 
 	public void ChangeState(int state)
@@ -52,12 +60,42 @@ public class GameManager : MonoBehaviour
 				case 2:
 					m_State = PlayerState.Gas;
 					break;
+				default:
+					Debug.Log("state: " + state);
+					break;
 			}
-		}
-		else
-		{
-			Debug.Log("GAMEMANAGER:: PlayerState: " + state);
 		}
 	}
 
+	public void ChangeTemperature(Temperature t)
+	{
+		m_Temperature = t;
+		switch (t)
+		{
+			case Temperature.Cold:
+				m_TemperatureText.text = "Cold";
+				break;
+			case Temperature.Warm:
+				m_TemperatureText.text = "Warm";
+				break;
+			case Temperature.Hot:
+				m_TemperatureText.text = "Hot";
+				break;
+			default:
+				m_TemperatureText.text = "Sample Text";
+				break;
+		}
+	}
+
+	public void HeatUp()
+	{
+		if (m_Temperature == Temperature.Cold) ChangeTemperature(Temperature.Warm);
+		else if (m_Temperature == Temperature.Warm) ChangeTemperature(Temperature.Hot);
+	}
+	
+	public void CoolDown()
+	{
+		if (m_Temperature == Temperature.Hot) ChangeTemperature(Temperature.Warm);
+		else if (m_Temperature == Temperature.Warm) ChangeTemperature(Temperature.Cold);
+	}
 }

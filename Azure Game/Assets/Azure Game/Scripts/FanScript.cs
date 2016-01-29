@@ -16,18 +16,7 @@ public class FanScript : MonoBehaviour {
 	void Update () {
 	
 	}
-
-	void OnCollisionStay(Collision collisionInfo)
-	{
-		
-		if (collisionInfo.gameObject.tag == "Player")
-		{
-			collisionInfo.gameObject.GetComponent<Rigidbody>().AddForce(0, 20, 0);
-			
-		}
-		//Debug.Log(collisionInfo.gameObject.tag);
-	}
-
+	
 	void OnTriggerStay(Collider other)
 	{
 		if (other.gameObject.tag == "Player")
