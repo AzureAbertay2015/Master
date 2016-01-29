@@ -2,7 +2,7 @@
 using System.Collections;
 
 [System.Serializable]
-public class GameManager
+public class GameManager : MonoBehaviour
 {
 
 	public enum PlayerState { Solid, Liquid, Gas };
@@ -21,7 +21,7 @@ public class GameManager
 
     //-----------------------------------------
     // function definitions
-    public GameManager()
+    void Start()
     {
 		//player = GetComponent<Player>();
 		m_State = PlayerState.Solid;
