@@ -3,7 +3,7 @@ using System.Collections;
 
 public class FanScript : MonoBehaviour {
 
-	public float m_FanForce = 5.0f;
+	public Vector3 m_FanForce;
 	public Player m_Player;
 	public GameManager m_GameManager;
 
@@ -22,7 +22,7 @@ public class FanScript : MonoBehaviour {
 		if (other.gameObject.tag == "Player")
 		{
 			if (m_GameManager.m_State == GameManager.PlayerState.Gas)
-				other.gameObject.GetComponent<Rigidbody>().AddForce(0, 20, 0);
+				other.gameObject.GetComponent<Rigidbody>().AddForce(m_FanForce);
 			
 		}
 		//Debug.Log(other.gameObject.tag);
