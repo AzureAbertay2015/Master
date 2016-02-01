@@ -27,19 +27,21 @@ public class DoorScript : MonoBehaviour {
 
     public void DoActivateTrigger()
     {
-        if (!open)
-        {
-            StartCoroutine(OpenUp());
-        }
-        
+		if (!open)
+		{
+			StartCoroutine(OpenUp());
+		}
+		
     }
 
     public void DoDeactivateTrigger()
     {
-        if (open)
-        {
-            StartCoroutine(Close());
-        }
+		
+		if (open)
+		{
+			StartCoroutine(Close());
+		}
+		
     }
 
     public IEnumerator OpenUp()

@@ -19,8 +19,8 @@ TagManager:
   - Solid
   - Liquid
   - Gas
-  - 
-  - 
+  - ButtonMesh
+  - ButtonCollider
   - 
   - 
   - 

@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11439924}
   - 65: {fileID: 6521270}
   m_Layer: 0
-  m_Name: AirConditionerPrefab
+  m_Name: AirConditionerSwitchPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
