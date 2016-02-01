@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
 
 	public void ChangeState(int state)
 	{
-		if (state > 0)
+		if (state >= 0)
 		{
 			switch (state)
 			{
@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
 					break;
 			}
 		}
+		ChangeLayer();
 	}
 
 	public void ChangeTemperature(Temperature t)
@@ -97,5 +98,28 @@ public class GameManager : MonoBehaviour
 	{
 		if (m_Temperature == Temperature.Hot) ChangeTemperature(Temperature.Warm);
 		else if (m_Temperature == Temperature.Warm) ChangeTemperature(Temperature.Cold);
+	}
+
+	private void ChangeLayer()
+	{
+		switch (m_State)
+		{
+			case PlayerState.Solid:
+				player.gameObject.layer = 9;
+				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				break;
+			case PlayerState.Liquid:
+				player.gameObject.layer = 10;// water
+				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				break;
+			case PlayerState.Gas:
+				player.gameObject.layer = 11;
+				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				break;		
+			default:
+				player.gameObject.layer = 0; // default
+				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				break;
+		}
 	}
 }
