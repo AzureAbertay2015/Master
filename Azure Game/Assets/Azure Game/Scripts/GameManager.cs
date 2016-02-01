@@ -31,19 +31,34 @@ public class GameManager : MonoBehaviour
     public void TogglePauseMenu()
     {
         // not the optimal way but for the sake of readability
-        if (UI.GetComponentInChildren<Canvas>().enabled)
+        if (UI.GetComponentsInChildren<Canvas>()[0].enabled)
         {
-            UI.GetComponentInChildren<Canvas>().enabled = false;
+            UI.GetComponentsInChildren<Canvas>()[0].enabled = false;
             Time.timeScale = 1.0f;
         }
         else
         {
-            UI.GetComponentInChildren<Canvas>().enabled = true;
+            UI.GetComponentsInChildren<Canvas>()[0].enabled = true;
             Time.timeScale = 0f;
         }
 
         //Debug.Log("GAMEMANAGER:: TimeScale: " + Time.timeScale);
     }
+
+	public void ToggleDeathMenu()
+	{
+		// not the optimal way but for the sake of readability
+		if (UI.GetComponentInChildren<Canvas>().enabled)
+		{
+			UI.GetComponentInChildren<Canvas>().enabled = false;
+			Time.timeScale = 1.0f;
+		}
+		else
+		{
+			UI.GetComponentsInChildren<Canvas>()[1].enabled = true;
+			Time.timeScale = 0f;
+		}
+	}
 
 	public void ChangeState(int state)
 	{
@@ -121,5 +136,10 @@ public class GameManager : MonoBehaviour
 				Debug.Log("Layer changed to: " + player.gameObject.layer);
 				break;
 		}
+	}
+
+	public void RestartLevel()
+	{
+		Application.LoadLevel("Game Scene");
 	}
 }
