@@ -16,5 +16,6 @@ public class RestartLevelScript : MonoBehaviour {
 	public void NextScene(string scene_string)
 	{
 		Application.LoadLevel(scene_string);
+		Time.timeScale = 1.0f;
 	}
 }
