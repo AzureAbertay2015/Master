@@ -65,6 +65,21 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	public void ToggleWinMenu()
+	{
+		if (UI.GetComponentsInChildren<Canvas>()[3].enabled)
+		{
+			UI.GetComponentsInChildren<Canvas>()[3].enabled = false;
+			Time.timeScale = 1.0f;
+			
+		}
+		else
+		{
+			UI.GetComponentsInChildren<Canvas>()[3].enabled = true;
+			Time.timeScale = 0f;
+		}
+	}
+
 	public void ChangeState(int state)
 	{
 		if (state >= 0)
