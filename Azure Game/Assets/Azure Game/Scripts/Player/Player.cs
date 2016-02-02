@@ -39,7 +39,6 @@ public class Player : MonoBehaviour {
 
 	public void ChangeState(int state)
 	{
-		this.GetComponent<PlayerControls>().ChangeState(state);
 		m_GameManager.ChangeState(state);
 	}
 }

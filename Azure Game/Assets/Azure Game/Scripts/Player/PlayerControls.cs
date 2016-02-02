@@ -227,31 +227,4 @@ public class PlayerControls : MonoBehaviour {
 				break;
 		}
 	}
-
-	public void ChangeState(int state)
-	{
-		switch (state)
-		{
-			case 0:
-				SetMesh(m_pSolidMesh);
-				SetMaterial(m_SolidMaterial);
-				m_State = State.Solid;
-				//m_pPlayer.ChangeState(0);
-				break;
-			case 1:
-				SetMesh(m_pLiquidMesh);
-				SetMaterial(m_LiquidMaterial);
-				m_State = State.Liquid;
-				//m_pPlayer.ChangeState(1);
-				break;
-			case 2:
-				SetMesh(m_pGasMesh);
-				SetMaterial(m_GasMaterial);
-				m_State = State.Gas;
-				//m_pPlayer.ChangeState(2);
-				break;
-			default:
-				break;
-		}
-	}
 }

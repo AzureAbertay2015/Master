@@ -24,9 +24,7 @@ public class GameManager : MonoBehaviour
     // function definitions
     void Start() {
 		//player = GetComponent<Player>();
-		m_State = PlayerState.Liquid;
-		ChangeLayer();
-		player.ChangeState(1);
+		m_State = PlayerState.Solid;
 		m_Temperature = Temperature.Warm;
 		m_TemperatureText.text = "Warm";
 		m_PlayerAlive = true;
@@ -160,35 +158,29 @@ public class GameManager : MonoBehaviour
 
 	public void HeatUpPlayer()
 	{
-		//player.GetComponent<PlayerControls>().RaiseState();
+		player.GetComponent<PlayerControls>().RaiseState();
 		switch (m_State)
 		{
 			case PlayerState.Solid:
 				m_State = PlayerState.Liquid;
-				player.ChangeState(1);
 				break;
 			case PlayerState.Liquid:
 				m_State = PlayerState.Gas;
-				player.ChangeState(2);
 				break;
 		}
-		ChangeLayer();
 	}
 	
 	public void CoolDownPlayer()
 	{
-		//player.GetComponent<PlayerControls>().LowerState();
+		player.GetComponent<PlayerControls>().LowerState();
 		switch (m_State)
 		{
 			case PlayerState.Gas:
 				m_State = PlayerState.Liquid;
-				player.ChangeState(1);
 				break;
 			case PlayerState.Liquid:
 				m_State = PlayerState.Solid;
-				player.ChangeState(0);
 				break;
 		}
-		ChangeLayer();
 	}
 }
