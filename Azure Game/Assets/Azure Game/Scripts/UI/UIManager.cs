@@ -4,7 +4,7 @@ using System.Collections;
 public class UIManager : MonoBehaviour
 {
     public GameManager GM;
-    
+	private bool m_GameRestarted;
 
     // Use this for initialization
     void Start()
@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         ScanForKeyStroke();
+		ScanForDeath();
     }
 
     void ScanForKeyStroke()
@@ -23,5 +24,15 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown("escape")&& !Input.GetKeyDown("space"))
             GM.TogglePauseMenu();
     }
-    
+	
+	void ScanForDeath()
+	{
+		if (!GM.IsPlayerAlive() && m_GameRestarted)
+		{
+			GM.ToggleDeathMenu();
+			m_GameRestarted = false;
+		}
+		if (GM.IsPlayerAlive())
+			m_GameRestarted = true;
+	}    
 }

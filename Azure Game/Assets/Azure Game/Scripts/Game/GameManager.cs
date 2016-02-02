@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 	public Temperature m_Temperature;
 	//public Text m_TemperatureText;
 	public Text m_TemperatureText;
+	private bool m_PlayerAlive;
 	
 
     //----------------------------------------
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 		m_State = PlayerState.Solid;
 		m_Temperature = Temperature.Warm;
 		m_TemperatureText.text = "Warm";
+		m_PlayerAlive = true;
 	}
 
     public void TogglePauseMenu()
@@ -48,15 +50,16 @@ public class GameManager : MonoBehaviour
 	public void ToggleDeathMenu()
 	{
 		// not the optimal way but for the sake of readability
-		if (UI.GetComponentInChildren<Canvas>().enabled)
+		if (UI.GetComponentsInChildren<Canvas>()[2].enabled)
 		{
-			UI.GetComponentInChildren<Canvas>().enabled = false;
+			UI.GetComponentsInChildren<Canvas>()[2].enabled = false;
 			Time.timeScale = 1.0f;
+			RestartLevel();
 		}
 		else
 		{
-			UI.GetComponentsInChildren<Canvas>()[1].enabled = true;
-			Time.timeScale = 0f;
+			UI.GetComponentsInChildren<Canvas>()[2].enabled = true;
+			Time.timeScale = 0f;			
 		}
 	}
 
@@ -141,5 +144,15 @@ public class GameManager : MonoBehaviour
 	public void RestartLevel()
 	{
 		Application.LoadLevel("Game Scene");
+	}
+
+	public bool IsPlayerAlive()
+	{
+		return m_PlayerAlive;
+	}
+
+	public void KillPlayer()
+	{
+		m_PlayerAlive = false;
 	}
 }
