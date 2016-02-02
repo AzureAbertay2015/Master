@@ -147,45 +147,13 @@ public class PlayerControls : MonoBehaviour {
         if (e && !e_up)
         {
             e_up = true;
-            switch(m_State)
-            {
-                case State.Solid:
-                    SetMesh(m_pLiquidMesh);
-					SetMaterial(m_LiquidMaterial);
-                    m_PreviousState = m_State;
-                    m_State = State.Liquid;
-					m_pPlayer.ChangeState(1);               
-                    break;
-                case State.Liquid:
-                    SetMesh(m_pGasMesh);
-					SetMaterial(m_GasMaterial);
-                    m_PreviousState = m_State;
-                    m_State = State.Gas;
-					m_pPlayer.ChangeState(2);
-                    break;
-            }
+			RaiseState();
         }
 
         if (q && !q_up)
         {
             q_up = true;
-            switch (m_State)
-            {
-                case State.Gas:
-                    SetMesh(m_pLiquidMesh);
-					SetMaterial(m_LiquidMaterial);
-                    m_PreviousState = m_State;
-                    m_State = State.Liquid;
-					m_pPlayer.ChangeState(1);
-                    break;
-                case State.Liquid:
-                    SetMesh(m_pSolidMesh);
-					SetMaterial(m_SolidMaterial);
-                    m_PreviousState = m_State;
-                    m_State = State.Solid;
-					m_pPlayer.ChangeState(0);
-                    break;
-            }
+			LowerState();
         }
         
         // calculate move direction
@@ -216,5 +184,47 @@ public class PlayerControls : MonoBehaviour {
 		else if (m_State == State.Liquid) return 1;
 		else if (m_State == State.Gas) return 2;
 		else return -1;
+	}
+
+	public void RaiseState()
+	{
+		switch (m_State)
+		{
+			case State.Solid:
+				SetMesh(m_pLiquidMesh);
+				SetMaterial(m_LiquidMaterial);
+				m_PreviousState = m_State;
+				m_State = State.Liquid;
+				m_pPlayer.ChangeState(1);
+				break;
+			case State.Liquid:
+				SetMesh(m_pGasMesh);
+				SetMaterial(m_GasMaterial);
+				m_PreviousState = m_State;
+				m_State = State.Gas;
+				m_pPlayer.ChangeState(2);
+				break;
+		}
+	}
+
+	public void LowerState()
+	{
+		switch (m_State)
+		{
+			case State.Gas:
+				SetMesh(m_pLiquidMesh);
+				SetMaterial(m_LiquidMaterial);
+				m_PreviousState = m_State;
+				m_State = State.Liquid;
+				m_pPlayer.ChangeState(1);
+				break;
+			case State.Liquid:
+				SetMesh(m_pSolidMesh);
+				SetMaterial(m_SolidMaterial);
+				m_PreviousState = m_State;
+				m_State = State.Solid;
+				m_pPlayer.ChangeState(0);
+				break;
+		}
 	}
 }

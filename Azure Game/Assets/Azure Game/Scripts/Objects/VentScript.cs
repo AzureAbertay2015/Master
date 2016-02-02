@@ -3,10 +3,10 @@ using System.Collections;
 
 public class VentScript : MonoBehaviour {
 
-	public Vector3 m_ApparitionPosition;
 	public VentScript m_OtherVent;
 	public GameManager m_GameManager;
 	public Player m_Player;
+	private Vector3 m_ApparitionPosition;
 	private Vector3 m_TempVel;
 
 	// Use this for initialization

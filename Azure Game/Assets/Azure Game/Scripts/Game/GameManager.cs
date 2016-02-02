@@ -106,13 +106,13 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	public void HeatUp()
+	public void HeatUpRoom()
 	{
 		if (m_Temperature == Temperature.Cold) ChangeTemperature(Temperature.Warm);
 		else if (m_Temperature == Temperature.Warm) ChangeTemperature(Temperature.Hot);
 	}
 	
-	public void CoolDown()
+	public void CoolDownRoom()
 	{
 		if (m_Temperature == Temperature.Hot) ChangeTemperature(Temperature.Warm);
 		else if (m_Temperature == Temperature.Warm) ChangeTemperature(Temperature.Cold);
@@ -124,19 +124,19 @@ public class GameManager : MonoBehaviour
 		{
 			case PlayerState.Solid:
 				player.gameObject.layer = 9;
-				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				//Debug.Log("Layer changed to: " + player.gameObject.layer);
 				break;
 			case PlayerState.Liquid:
 				player.gameObject.layer = 10;// water
-				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				//Debug.Log("Layer changed to: " + player.gameObject.layer);
 				break;
 			case PlayerState.Gas:
 				player.gameObject.layer = 11;
-				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				//Debug.Log("Layer changed to: " + player.gameObject.layer);
 				break;		
 			default:
 				player.gameObject.layer = 0; // default
-				Debug.Log("Layer changed to: " + player.gameObject.layer);
+				//Debug.Log("Layer changed to: " + player.gameObject.layer);
 				break;
 		}
 	}
@@ -154,5 +154,33 @@ public class GameManager : MonoBehaviour
 	public void KillPlayer()
 	{
 		m_PlayerAlive = false;
+	}
+
+	public void HeatUpPlayer()
+	{
+		player.GetComponent<PlayerControls>().RaiseState();
+		switch (m_State)
+		{
+			case PlayerState.Solid:
+				m_State = PlayerState.Liquid;
+				break;
+			case PlayerState.Liquid:
+				m_State = PlayerState.Gas;
+				break;
+		}
+	}
+	
+	public void CoolDownPlayer()
+	{
+		player.GetComponent<PlayerControls>().LowerState();
+		switch (m_State)
+		{
+			case PlayerState.Gas:
+				m_State = PlayerState.Liquid;
+				break;
+			case PlayerState.Liquid:
+				m_State = PlayerState.Solid;
+				break;
+		}
 	}
 }

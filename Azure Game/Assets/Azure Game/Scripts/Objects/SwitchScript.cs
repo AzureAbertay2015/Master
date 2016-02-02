@@ -32,10 +32,10 @@ public class SwitchScript : MonoBehaviour {
 		GameObject o = this.transform.GetChild(0).gameObject;
 		o.transform.rotation = m_OpenRotation;
 		if (m_SwitchType == SwitchType.AirConditioner) {
-			m_GameManager.CoolDown();
+			m_GameManager.CoolDownRoom();
 		}
 		else if (m_SwitchType == SwitchType.Heater) {
-			m_GameManager.HeatUp();
+			m_GameManager.HeatUpRoom();
 		}
 	}
 
@@ -46,11 +46,11 @@ public class SwitchScript : MonoBehaviour {
 		o.transform.rotation = m_ClosedRotation;
 		if (m_SwitchType == SwitchType.AirConditioner)
 		{
-			m_GameManager.HeatUp();
+			m_GameManager.HeatUpRoom();
 		}
 		else if (m_SwitchType == SwitchType.Heater)
 		{
-			m_GameManager.CoolDown();
+			m_GameManager.CoolDownRoom();
 		}
 	}
 
